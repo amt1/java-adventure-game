@@ -1,4 +1,6 @@
 import Weapons.Weapon;
+import Weapons.WeaponPrefixes;
+import Weapons.WeaponSuffixes;
 import Weapons.WeaponType;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,10 +12,13 @@ public class WeaponTest {
 
     Weapon weapon;
     WeaponType weaponTypeInstance;
+    WeaponPrefixes weaponPrefix;
 
     @Before
     public void before() {
         weapon = new Weapon(WeaponType.AXE);
+        weapon.setPrefix(WeaponPrefixes.MYTHICAL);
+        weapon.setSuffix(WeaponSuffixes.DOOM);
 
     }
 
@@ -23,8 +28,33 @@ public class WeaponTest {
     }
 
     @Test
+    public void hasPrefix(){
+        assertEquals("Mythical", weapon.getPrefix());
+    }
+
+    @Test
+    public void hasSuffix(){
+        assertEquals("Doom", weapon.getSuffix());
+    }
+
+    @Test
     public void hasAttackStrength() {
-        assertEquals(50, weapon.getAttackStrength());
+        assertEquals(525, weapon.getAttackStrength());
+    }
+
+
+    @Test
+    public void hasWear(){
+        assertEquals(1, weapon.getWear());
+    }
+
+    @Test
+    public void hasAccuracy(){
+        assertEquals(1, weapon.getAccuracy(), 0.01);
+    }
+    @Test
+    public void hasBaseAttackStrength() {
+        assertEquals(50, weapon.getBaseAttackStrength());
     }
 
     @Test
@@ -34,12 +64,23 @@ public class WeaponTest {
     }
 
     @Test
-    public void hasWear(){
-        assertEquals(10, weapon.getWear());
+    public void hasBaseWear(){
+        assertEquals(10, weapon.getBaseWear());
     }
 
     @Test
-    public void hasAccuracy(){
-        assertEquals(0.5, weapon.getAccuracy(), 0.01);
+    public void hasBaseAccuracy(){
+        assertEquals(0.5, weapon.getBaseAccuracy(), 0.01);
+    }
+    @Test
+    public void hasFullName(){
+        System.out.println(weapon.getFullName());
+        assertNotNull(weapon.getFullName());
+    }
+
+    @Test
+    public void canBeWornOut() {
+        weapon.wearOut(1);
+        assertEquals(true, weapon.isWornOut());
     }
 }
