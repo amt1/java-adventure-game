@@ -18,8 +18,6 @@ public class Weapon  {
 
     public Weapon ( WeaponType baseType) {
 
-      //  this.baseType = baseType;
-        System.out.println(baseType);
         this.type = baseType.getName();
         this.attackStrength = baseType.getBaseAttackStrength();
         this.accuracy = baseType.getBaseAccuracy();
@@ -39,5 +37,13 @@ public class Weapon  {
 
     public String getName() {
         return name;
+    }
+
+    public int getWear() {
+        return wear;
+    }
+
+    public double getAccuracy() {
+        return accuracy;
     }
 }
