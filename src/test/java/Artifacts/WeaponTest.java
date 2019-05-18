@@ -1,7 +1,9 @@
-import Weapons.Weapon;
-import Weapons.WeaponPrefixes;
-import Weapons.WeaponSuffixes;
-import Weapons.WeaponType;
+package Artifacts;
+
+import Artifacts.Weapons.Weapon;
+import Artifacts.Weapons.WeaponPrefixes;
+import Artifacts.Weapons.WeaponSuffixes;
+import Artifacts.Weapons.WeaponType;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -83,4 +85,10 @@ public class WeaponTest {
         weapon.wearOut(1);
         assertEquals(true, weapon.isWornOut());
     }
+    @Test
+    public void hasBaseValue(){
+        weapon = new Weapon(WeaponType.AXE);
+        assertEquals(50, weapon.getBaseValue());
+    }
+
 }
