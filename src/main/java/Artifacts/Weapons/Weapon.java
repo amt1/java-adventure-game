@@ -8,10 +8,10 @@ import java.util.Random;
 public class Weapon extends Artifact {
 
     private int attackStrength;
-    private double accuracy;
+    private int accuracy;
     private int wear;
     private int baseAttackStrength;
-    private double baseAccuracy;
+    private int baseAccuracy;
     private int baseWear;
     private int baseValue;
     private String type;
@@ -104,7 +104,8 @@ public class Weapon extends Artifact {
     }
     public void modifyStats() {
         this.attackStrength = baseAttackStrength + prefixEnum.modifyAttackStrength() + suffixEnum.modifyAttackStrength();
-        this.accuracy = baseAccuracy * prefixEnum.modifyAccuracy() * suffixEnum.modifyAccuracy();
+        this.accuracy = baseAccuracy + prefixEnum.modifyAccuracy() + suffixEnum.modifyAccuracy();
+        if (this.accuracy < 1) this.accuracy = 1;
         this.wear = baseWear + prefixEnum.modifyWear() + suffixEnum.modifyWear();
         if (wear < 1) wear = 1;
         this.value = baseValue + prefixEnum.getValue() + suffixEnum.getValue() + nameEnum.getValue();
