@@ -3,9 +3,11 @@ package Characters;
 import Artifacts.Treasure.Treasure;
 import Artifacts.Treasure.TreasureType;
 import Interfaces.ICanBeFound;
+import Interfaces.ICanFight;
+
 import java.util.HashMap;
 
-public abstract class GameCharacter implements ICanBeFound {
+public abstract class GameCharacter implements ICanBeFound, ICanFight {
 
     protected double hitPoints = 1;
     protected double attackStrength = 1;
@@ -20,6 +22,7 @@ public abstract class GameCharacter implements ICanBeFound {
     protected boolean isDead = false;
     protected boolean isUndead = false;
     protected double hostility = 0;
+    protected double shield = 1;
 
 
     public GameCharacter(String name){
@@ -147,4 +150,21 @@ public abstract class GameCharacter implements ICanBeFound {
         return treasureTally.size();
     }
 
+    public double getShield() {
+        return shield;
+    }
+
+    public boolean defend( double attackPower){
+        double defence = hitPoints + shield;
+        if (attackPower < defence) {
+            if (attackPower > shield) hitPoints -= (defence - attackPower);
+            return true;
+        }
+        return false;
+    }
+
+    public double attack(GameCharacter opponent){
+        double attackPower = attackStrength;
+        return attackPower;
+    }
 }

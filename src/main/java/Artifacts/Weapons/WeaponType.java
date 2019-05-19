@@ -5,7 +5,8 @@ public enum WeaponType {
     SWORD("Sword",10, 10, 5, 100),
     CLUB("Club",100, 3, 20, 20),
     STAFF("Staff", 10, 7, 5, 10),
-    BOOK("Book", 1,10,5, 80)
+    BOOK("Book", 1,10,5, 80),
+    BOW("Bow", 30, 20, 15, 100)
     ;
 
 

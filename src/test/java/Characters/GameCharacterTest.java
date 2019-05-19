@@ -3,6 +3,7 @@ package Characters;
 import Artifacts.Treasure.Treasure;
 import Artifacts.Treasure.TreasureType;
 import Characters.Players.Player;
+import Characters.Players.PlayerClass;
 import Characters.Players.Role;
 import org.junit.Before;
 import org.junit.Ignore;
@@ -17,7 +18,7 @@ public class GameCharacterTest {
     @Before
     public void before() {
 
-        player = new Player("Freddy", Role.CLERIC);
+        player = new Player("Freddy", PlayerClass.HUMAN, Role.CLERIC);
         mytreasure = new Treasure( TreasureType.GOLD, 100);
     }
 
@@ -141,7 +142,7 @@ public class GameCharacterTest {
 
 
     @Test
-    @Ignore
+  //  @Ignore
 
     public void listTreasureTypes() {
         player.addTreasure(mytreasure);
@@ -156,8 +157,6 @@ public class GameCharacterTest {
         assertEquals(true, player.removeTreasure(mytreasure.getType(), 50));
         assertEquals(1, player.countTypesOfTreasure());
         player.listTreasureTypes();
-// need to update count of treasure type - not working
-
     }
 
     @Test
@@ -181,5 +180,26 @@ public class GameCharacterTest {
         player.addTreasure(mytreasure);
 
         assertEquals(200, player.countTreasureType(mytreasure.getType()));
+    }
+
+    @Test
+    public void canGetShield() {
+        assertEquals(1, player.getShield(), 0.1);
+    }
+    @Test
+    public void canDefend(){
+        assertEquals(true, player.defend(1));
+    }
+
+    @Test
+    public void canLoseFight() {
+        assertEquals(false, player.defend(2));
+
+    }
+
+    @Test
+    public void canLoseHitPointsWhenDefending() {
+        assertEquals(true, player.defend(1.5));
+        assertEquals(0.5, player.getHitPoints(),0.1);
     }
 }

@@ -12,13 +12,17 @@ public class Player extends GameCharacter implements ICanTalk {
     ArrayList<Weapon> weapons;
     Role role;
     String roleName;
+    PlayerClass playerClass;
+    String className;
 
 
-    public Player(String name, Role role){
+    public Player(String name, PlayerClass playerClass, Role role){
         super(name);
         this.role = role;
         this.roleName = role.getName();
-        this.fullName = name + ", a " + roleName;
+        this.playerClass = playerClass;
+        this.className = playerClass.getName();
+        this.fullName = name + ", a " + className + " " + roleName;
         this.weapons = new ArrayList<>();
     }
 
