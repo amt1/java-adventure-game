@@ -9,6 +9,8 @@ import java.util.ArrayList;
 public class Player extends GameCharacter implements ICanTalk {
 
     Weapon currentWeapon;
+    Weapon classWeapon;
+    Weapon roleWeapon;
     ArrayList<Weapon> weapons;
     Role role;
     String roleName;
@@ -23,7 +25,12 @@ public class Player extends GameCharacter implements ICanTalk {
         this.playerClass = playerClass;
         this.className = playerClass.getName();
         this.fullName = name + ", a " + className + " " + roleName;
+        this.classWeapon = new Weapon( playerClass.getDefaultWeapon());
+        this.roleWeapon = new Weapon( role.getDefaultWeapon());
         this.weapons = new ArrayList<>();
+        addWeapon(classWeapon);
+        addWeapon(roleWeapon);
+        setCurrentWeapon(classWeapon);
     }
 
     public Weapon getCurrentWeapon() {
@@ -32,6 +39,7 @@ public class Player extends GameCharacter implements ICanTalk {
 
     public void setCurrentWeapon(Weapon currentWeapon) {
         this.currentWeapon = currentWeapon;
+        modifyStatsByWeapon(currentWeapon);
     }
 
     public ArrayList<Weapon> getWeapons() {
@@ -42,6 +50,9 @@ public class Player extends GameCharacter implements ICanTalk {
         this.weapons.add(weapon);
     }
 
+    public void modifyStatsByWeapon(Weapon weapon){
+
+    }
     public Role getRole() {
         return role;
     }
