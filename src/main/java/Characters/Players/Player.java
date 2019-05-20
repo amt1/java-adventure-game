@@ -2,6 +2,7 @@ package Characters.Players;
 
 import Artifacts.Weapons.Weapon;
 import Characters.GameCharacter;
+import Interfaces.ICanFight;
 import Interfaces.ICanTalk;
 
 import java.util.ArrayList;
@@ -141,17 +142,14 @@ public class Player extends GameCharacter implements ICanTalk {
         return (accuracy % (rand.nextInt(accuracy) + 1));
     }
 
-    public double attack (GameCharacter opponent){
+    public double attack (ICanFight opponent){
         String msg = "";
         double attackPower = 0;
-        System.out.println("luck = " + luck);
-        System.out.println("attackStrength = " + attackStrength);
         int temp = (attackAccuracy() * attackStrength * luck);
         if (temp == 0) {
             msg = name + " missed!";
         } else {
             attackPower = temp / 10000;
-            System.out.println("attackPower = " + attackPower);
             msg = name + " attacks " + opponent.getName() + " with " + attackPower + "...";
         }
         displayMsg(msg);

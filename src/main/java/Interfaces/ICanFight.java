@@ -6,5 +6,7 @@ public interface ICanFight {
 
     boolean defend( double attackPower);
 
-    double attack(GameCharacter opponent);
+    double attack(ICanFight opponent);
+
+    public String getName();
 }

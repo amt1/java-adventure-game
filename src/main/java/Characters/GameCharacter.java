@@ -163,7 +163,7 @@ public abstract class GameCharacter implements ICanBeFound, ICanFight {
         return false;
     }
 
-    public double attack(GameCharacter opponent){
+    public double attack(ICanFight opponent){
         double attackPower = attackStrength;
         return attackPower;
     }
