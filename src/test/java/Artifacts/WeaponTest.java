@@ -25,8 +25,13 @@ public class WeaponTest {
     }
 
     @Test
+    public void hasTypeName(){
+        assertEquals("Axe", weapon.getTypeName());
+    }
+
+    @Test
     public void hasType(){
-        assertEquals("Axe", weapon.getType());
+        assertEquals(WeaponType.AXE, weapon.getType());
     }
 
     @Test
@@ -52,7 +57,7 @@ public class WeaponTest {
 
     @Test
     public void hasAccuracy(){
-        assertEquals(1, weapon.getAccuracy(), 0.01);
+        assertEquals(7, weapon.getAccuracy());
     }
     @Test
     public void hasBaseAttackStrength() {
@@ -72,7 +77,7 @@ public class WeaponTest {
 
     @Test
     public void hasBaseAccuracy(){
-        assertEquals(0.5, weapon.getBaseAccuracy(), 0.01);
+        assertEquals(5, weapon.getBaseAccuracy());
     }
     @Test
     public void hasFullName(){

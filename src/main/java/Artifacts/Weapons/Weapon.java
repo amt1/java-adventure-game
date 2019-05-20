@@ -14,7 +14,8 @@ public class Weapon extends Artifact {
     private int baseAccuracy;
     private int baseWear;
     private int baseValue;
-    private String type;
+    private WeaponType baseType;
+    private String typeName;
     private String name;
     private Random rand = new Random();
     private String fullName;
@@ -28,7 +29,8 @@ public class Weapon extends Artifact {
 
     public Weapon ( WeaponType baseType) {
 
-        this.type = baseType.getName();
+        this.baseType = baseType;
+        this.typeName = baseType.getName();
         index = rand.nextInt(WeaponAndIkeaNames.values().length);
         this.nameEnum = WeaponAndIkeaNames.values()[index];
         this.name = nameEnum.getName();
@@ -38,7 +40,7 @@ public class Weapon extends Artifact {
         index = rand.nextInt(WeaponSuffixes.values().length);
         this.suffixEnum = WeaponSuffixes.values()[index];
         this.suffix = suffixEnum.getName();
-        this.fullName = name + ", a " + prefix + " " + type + " of " + suffix;
+        this.fullName = name + ", a " + prefix + " " + typeName + " of " + suffix;
         this.finderMsg = "You've found " + fullName;
         this.baseAccuracy = baseType.getBaseAccuracy();
         this.baseAttackStrength = baseType.getBaseAttackStrength();
@@ -48,10 +50,10 @@ public class Weapon extends Artifact {
     }
     // separate out base and modified amounts
 
-    public String getType() {
-        return type;
+    public String getTypeName() {
+        return typeName;
     }
-
+    public WeaponType getType() { return baseType; }
     public int getAttackStrength() {
         return attackStrength;
     }
@@ -75,10 +77,10 @@ public class Weapon extends Artifact {
     public int getBaseWear() {
         return baseWear;
     }
-    public double getAccuracy() {
+    public int getAccuracy() {
         return accuracy;
     }
-    public double getBaseAccuracy() {
+    public int getBaseAccuracy() {
         return baseAccuracy;
     }
     public String getFullName(){
