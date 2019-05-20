@@ -25,6 +25,6 @@ public class LanguageStringsTest {
 
     @Test
     public void sayHello() {
-        languageStrings.sayHello();
+        System.out.println(languageStrings.getThingsToSay().sayHello());
     }
 }

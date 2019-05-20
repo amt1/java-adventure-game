@@ -8,6 +8,9 @@ public class English  implements IKnowWords {
 
     }
 
+    // if I can find out how to get the filename from a variable I can inherit all these
+    // functions from an abstract class and ony store them once
+
     public String sayHello(){
         return EnglishStrings.HELLO.getMsg();
     }
