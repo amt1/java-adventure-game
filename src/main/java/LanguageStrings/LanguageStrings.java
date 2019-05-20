@@ -11,7 +11,7 @@ public class LanguageStrings {
     public LanguageStrings(Translation language){
         this.language = language;
         this.languageName = language.getName();
-        this.thingsToSay = new English();
+        if (language == Translation.ENGLISH) this.thingsToSay = new English();
     }
 
     public Translation getLanguage() {
@@ -26,7 +26,7 @@ public class LanguageStrings {
         return languageName;
     }
 
-    public String hello(){
-        return thingsToSay.sayHello();
+    public void sayHello(){
+        System.out.println(thingsToSay.sayHello());
     }
 }
