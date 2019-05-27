@@ -9,9 +9,15 @@ public class English  implements IKnowWords {
     }
 
     // if I can find out how to get the filename from a variable I can inherit all these
-    // functions from an abstract class and ony store them once
+    // functions from an abstract class and only store them once
 
     public String sayHello(){
         return EnglishStrings.HELLO.getMsg();
     }
+
+    public String attack1(){
+        return EnglishStrings.ATTACK1.getMsg();
+    }
+
+// functions need to appear in these language files and be prototyped in the interface
 }

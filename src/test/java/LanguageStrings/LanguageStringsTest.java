@@ -24,7 +24,9 @@ public class LanguageStringsTest {
     }
 
     @Test
-    public void sayHello() {
+    public void talk() {
         System.out.println(languageStrings.getThingsToSay().sayHello());
+        System.out.println(languageStrings.getThingsToSay().attack1());
+
     }
 }

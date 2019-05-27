@@ -8,6 +8,8 @@ public class LanguageStrings {
     String languageName;
     IKnowWords thingsToSay;
 
+    // can get room, character and object descriptions in a similar way
+
     public LanguageStrings(Translation language){
         this.language = language;
         this.languageName = language.getName();
@@ -38,6 +40,12 @@ public class LanguageStrings {
     // in dungeon as part of the world, or in the controller?
     // so talking would go eg:
     // player.say(myLanguage.getThingsToSay().sayHello())
+
+    // ie:
+
+    // ICanTalk.say(myLanguage.IKnowWords().sayMsg());
+
+    // needs generalising more for that
     // seems a long way round still
     // think the ICanTalk objects have to have them to use them?
     // dungeon can then have a separate version for room descriptions

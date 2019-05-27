@@ -2,7 +2,8 @@ package LanguageStrings;
 
 // I don't know if this way will work
 public enum EnglishStrings  {
-    HELLO("Hello")
+    HELLO("Hello"),
+    ATTACK1("Prepare to Die!")
     ;
     // English language strings could go here
 
